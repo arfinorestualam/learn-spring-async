@@ -23,7 +23,8 @@ public class HelloAsync {
     }
 
     //build future
-    @Async
+    //just add name of executor to use executor that we made
+    @Async("singleTaskExecutor")
     @SneakyThrows
     public Future<String> hello(final String name) {
         CompletableFuture<String> future = new CompletableFuture<>();
@@ -31,4 +32,5 @@ public class HelloAsync {
         future.complete("Hello " + name + " from " + Thread.currentThread());
         return future;
     }
+    //hello future will be use single task executor now, not default (the virtual executor)
 }

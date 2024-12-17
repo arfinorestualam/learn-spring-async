@@ -15,5 +15,11 @@ public class AsyncConfiguration {
     public Executor taskExecutor() {
         return Executors.newVirtualThreadPerTaskExecutor();
     }
-    //must bean, and the name must be taskExecutor
+    //must bean, and the name must be taskExecutor, and will be default
+
+    //dynamic executor, we can use executor that we made dynamically
+    @Bean
+    public Executor singleTaskExecutor() {
+        return Executors.newSingleThreadExecutor();
+    }
 }
