@@ -25,4 +25,22 @@ public class Job {
     public Long getValue() {
         return counter.get();
     }
+
+
+    //rules of cron expression
+    // * * * * * *
+    // first * is second (0-59)
+    // second * is minute (0-59)
+    // third * is hour (0-23)
+    // fourth * is day of the month (1-31)
+    // fifth * is month (1-12) or (JAN - DEC)
+    // sixth * is day of the week (0-7), (0 or 7 is Sunday, or MON-SUN)
+    // if you want to exercise go to crontab.guru
+
+    //use cron on schedule is like this :
+    @Scheduled(cron = "* * * * * *") //it means every second
+    //"*/2 * * * * *" it means run every 2 seconds
+    public void scheduleCron() {
+        log.info("run cron job every second");
+    }
 }
